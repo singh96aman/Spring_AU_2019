@@ -1,0 +1,57 @@
+body {
+	background: url(images/background.jpg) no-repeat center center fixed; 
+     	-webkit-background-size: cover;
+     	-moz-background-size: cover;
+     	-o-background-size: cover;
+     	background-size: cover;	
+	overflow : auto;
+}
+
+.loginbackground{
+	background: url(images/backgroundlogin.jpg) no-repeat center center fixed; 
+	background-size: cover;	
+	height : 70%;
+	width : 25%;
+	background-color : white;
+	text-align : center;
+	display : inline-block;
+	font-family : Tahoma, Geneva, sans-serif;
+	padding : 0.1em;
+	border: 0px solid black;
+   	overflow: hidden;
+	font-size: 1.5em;
+	position: fixed;
+   	top: 50%;
+   	left: 50%;
+   	transform: translate(-50%, -50%);
+	transition: box-shadow 2s;
+}
+
+.loginbackground:hover{
+	box-shadow : 50px 50px;
+}
+
+
+.buttonclass {
+ 	background-color: #008CBA;
+  	border: none;
+  	color: white;
+  	padding: 15px 32px;
+  	text-align: center;
+  	text-decoration: none;
+  	display: inline-block;
+  	font-size: 16px;
+}
+
+.buttonclass:hover{
+	background-color: #FF0000;
+}
+
+input {
+ 	width: 70%;
+    	padding: 10px;
+    	-webkit-box-sizing: border-box;
+    	-moz-box-sizing: border-box; 
+    	box-sizing: border-box;
+	font-size: 0.5em;
+}

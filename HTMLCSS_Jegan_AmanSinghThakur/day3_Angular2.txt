@@ -1,0 +1,121 @@
+set PATH=%PATH%;C:\Users\aman.singh\Desktop\node-v10.15.0-win-x64
+
+JavaScript is Hybrid language - Switch available betw OOP and functional programming
+
+Angular is built on OOP but React JS is built on functional programming
+
+Angular 2 is made up of modules and nested modules
+Areejeet
+
+/// SERVER
+node bootstrapDatabase.js
+
+npm run start
+
+http://localhost:8081/api/verticals
+
+ALL routes in routes.js
+////////////
+
+Angular CLI commands read!
+
+app-module.ts @NgModule => Decorator (provides extra functionalities to class)
+
+There is one root node and then other are leaf node which run in parallel
+
+All the html code goes in Component (templateURL) and there is app-root in index.html (By defualt and we can change it !)
+
+It's possible to run React and Angular in parallel as well as 2 angular application running parallel in browser.
+body-->app-root
+  |
+  |
+  v
+app-root2
+
+If you want to use module a in module b
+Steps :
+Write Module a in import of b
+Write Module b in import of a
+Declare Module a in declaration of b
+
+What are entryComponents ?
+
+Do Tutorial Heroes 
+
+One way binding and Two way binding
+
+Shadow DOM : shadow DOM (DOM for input, button) is separate DOM created that is different from DOM created above.
+
+Learn Decorative
+
+Providers ! and diff betw providers in module and providers in component
+ 
+Routing in Angular Routing divides application logically using different urls
+
+app-routing modules routing-outlet router-outlet is updated and reflected !
+
+How to set up multiple level router outlets (For beginner start with one router outlet)
+
+Application bootstraps No need to export (Compiler does it for you). Bootstrap kick starts the application.
+
+bootstrap goes and checks for each module and at the end it encounters router-outlet, anything not found is shown in entry component
+
+Router link vs manual routing (not covered) & Unit testing
+
+:unitId?
+
+Dependence injection Soft dependency and Hard dependency
+
+Services (injectable objects => Creates singleton obejct)
+
+Life cycle hooks ?
+
+
+Difference between import and injectable : import is static import but in injectable you get the instance of the object.
+
+Providers ?
+
+Use of Rough data in singleton object.
+
+Scoping is done for singleton objects
+
+Directives <=> Component
+
+
+
+
+
+
+Singleton object has single instance depending where it is injected. It's possible to have multiple instances of same singleton object depending on scope.
+
+one way databinding - only for presentational : just shown in html page two way databinding - shown in html and its changes are reflected in backend
+
+Anjular JS had 2-way binding but Angular 2 has 1-way and 2-way much more efficient.
+
+ngOnInit(){
+}
+
+Activated Route 
+
+Single page application development
+
+code evolution youtube !!
+
+
+All the data transferred in JSON in angular CLI
+
+@input used to pass data from parent to child
+
+Lifecycles hooks !
+
+ngOnInit calls just after constructor (called only once) & ngOnChanges when data binded changes (called multiple times)
+
+lifecylce angular component
+
+Promises
+
+Angular Pipes !!!!!! Promise and Subscribe Asynchronous calls
+
+Rx-JS
+
+Observables is just a type of tunnel to get your data and rx-js provides operators.

@@ -1,0 +1,53 @@
+<!--
+PROGRAM TO LOGIN AND SEE YOUTUBE PAGE
+Name 		: 	Aman Singh Thakur
+Date and Time 	: 	6th January, 7:30PM
+Major Topics 	: 	HTML, CSS, JavaScript
+Sub Topics 	: 	HTML, HTML Tags, forms, videos, login, localstorage,
+			CSS classes, CSS ID, Media Queries (Theme changes on resizing 2nd page),
+			Transition (Hover on first page)
+Files 		: 	index.html & styles.css => index2.html & styles2.css
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8"/>
+  	<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="loginbackground"><br>
+<b>LOGIN</b><br><br><br>
+<input type="text" id="username" placeholder="Username"/>
+<br><br>
+<input type="password" id="password" placeholder="......"/>
+<br><br>
+<input type="submit" value="Login" id="login" class="buttonclass" onClick="check()"/><br><br>
+<input type="submit" value="Sign Up" id="signup" class="buttonclass" onClick="store()"/><br><br>
+</div>
+<script>
+function store() {
+	var name = document.getElementById('username').value;
+	var password = document.getElementById('password').value;
+    	localStorage.setItem('username', name);
+    	localStorage.setItem('password', password);
+	document.getElementById('username').value="";
+	document.getElementById('password').value="";
+	alert('signup successful');
+}
+function check() {
+    	var name = localStorage.getItem('username');
+    	var password = localStorage.getItem('password');
+
+    	var username = document.getElementById('username');
+    	var userpassword = document.getElementById('password');
+	
+	if(username.value == name && userpassword.value == password) {
+		location.replace("second.html");
+    	}else {
+        	alert('Login Error !');
+    	}
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,113 @@
+body{
+	margin:0px;
+	height: 100%;
+}
+.Left {
+    	position: absolute;
+    	left: 0;
+    	top: 0;
+    	bottom: 0;
+    	width: 67%;
+	height: 100%;
+	z-index:-1;
+  
+}
+
+.Right {
+    	position: absolute;
+    	left: 67%;
+    	top: 0;
+    	bottom: 0;
+    	right: 0; 
+	z-index:-1;
+}
+
+.LeftData {
+	margin-top : 80px;
+	margin-left : 20px;
+	margin-right : 20px;
+	margin-bottom : 20px;
+}
+
+.RightData{
+	margin-top : 60px;
+}
+
+.VideoInformation{
+	margin-top : 20px;
+	margin-left : 20px;
+	margin-right : 20px;
+	font-family : Tahoma, Geneva, sans-serif;
+	font-size : 1.5em;
+	text-align : center;
+}
+
+.OtherVideosList{
+	margin-top : 20px;
+	margin-left : 60px;
+	font-family : Tahoma, Geneva, sans-serif;
+	font-size : 1.5em;
+	text-align : center;
+	height : 650px;
+}
+
+.buttonclass {
+ 	background-color: #008CBA;
+	width : 90%;
+  	border: none;
+  	color: white;
+  	padding: 15px;
+  	text-align: center;
+  	text-decoration: none;
+  	display: inline-block;
+  	font-size: 16px;
+}
+
+.buttonclass:hover{
+	background-color: #FF0000;
+}
+
+.navbar {
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  width: 100%;
+	color : red;
+background-color : black;
+	font-size : 1.5em;
+}
+.navbar a {
+ float: left;
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.buttonsubscribe{
+	background-color: red;
+	width : 10%
+  	border: 1px;
+  	color: white;
+  	padding: 5px;
+  	text-decoration: none;
+  	display: inline-block;
+  	font-size: 16px;
+	margin-left : 10%;
+}
+
+/* On screens that are 600px or less, set the background color to olive */
+@media screen and (max-width: 900px) {
+body {
+    background-color: black;
+	color : white;
+}
+.navbar{
+	background-color: white;
+}
+.navbar a{
+	color : black;
+}
+}
