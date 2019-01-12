@@ -1,0 +1,12 @@
+table, tr, td
+{
+    border: 1px dotted;
+    border-color: brown;
+    padding: 5px;
+    text-align: center;
+    align-self: center;
+    width: 100%;
+}
+h1{
+    color : red;
+}
