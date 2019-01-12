@@ -1,3 +1,10 @@
+/*
+* Simple Employee program made by Aman Singh Thakur
+* Made on : 12th January, 2019
+* Topics : Core Java
+* Sub Topics : 	Packages, import, interface, class, constructor, static function, static block, normal block, function overloading
+*				function overrriding, collections, arraylist, OOP, Datatypes, Exception Handling
+*/
 package Assignment;
 
 import java.util.ArrayList;
