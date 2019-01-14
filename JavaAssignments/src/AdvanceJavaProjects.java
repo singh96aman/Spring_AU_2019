@@ -2,7 +2,7 @@
  * Made on : 12th January, 2019
  * Topic : Core Java
  * Sub Topics : packages, classes, constructor, function overloading, function overrriding, abstraction, abstract, interface
- * 				inheritance, algorithms, collections, treeset, arraylist, iterator, sorting, covariant return types
+ * 				inheritance, algorithms, collections, treeset, arraylist, iterator, sorting, enum
  */
 
 //package Assignment;
@@ -83,7 +83,8 @@ class Person{
 	public String toString() {
 		return this.name+" "+this.age+" "+this.id;
 	}
-	//Assignment to sort according to descending order of age
+	
+	//Assignment (given by trainer) to sort according to descending order of age
 	/*
 	@Override
 	public int compareTo(Person o) {
@@ -97,7 +98,7 @@ class Person{
 	}*/
 }
 
-public class AdvancedCoreJava {
+public class AdvanceJavaProjects {
 	
 	static enum SortType {
 		AGE,
@@ -106,6 +107,7 @@ public class AdvancedCoreJava {
 	}
 	
 	static void getAllEmployeesWithAgeLessThan30(ArrayList<Company> companies) {
+		System.out.println("/********All Employees Less Than 30*********/");
 		for(int i=0; i<companies.size(); i++) {
 			System.out.println(companies.get(i).name);
 			Iterator<Person> iterator = companies.get(i).Employees.iterator();
@@ -118,6 +120,7 @@ public class AdvancedCoreJava {
 	}
 
 	static void getAllEmployeesInSameCity(ArrayList<Company> companies) {
+		System.out.println("/********All Employees In Same City*********/");
 		for(int i=0; i<companies.size(); i++) {
 			for(int j=0; j<i; j++) {
 				if(i!=j) {
@@ -128,21 +131,22 @@ public class AdvancedCoreJava {
 		}
 	}
 	
-	static void sortEmployeesByName(ArrayList<Company> companies) {
-		TreeSet<Person> ts = new TreeSet<Person>((p1,p2) -> p1.name.compareTo(p2.name));
-		for(int i=0; i<companies.size(); i++) {
-			Iterator<Person> iterator = companies.get(i).Employees.iterator();
-			while(iterator.hasNext()) {
-				Person p = iterator.next();
-				ts.add(p);
-			}
-			companies.get(i).resetEmployees(ts);
+	static void sortEmployees(ArrayList<Company> companies, SortType sorttype) {
+		TreeSet<Person> ts;
+		switch(sorttype) {
+			case AGE 	: 	System.out.println("/********Sorting By Age*********/");
+							ts = new TreeSet<Person>((p1,p2) -> 
+							(p1.age<p2.age ? -1 : (p1.age==p2.age ? 0 : 1))
+									);
+							break;
+			case NAME 	:	System.out.println("/********Soring By Name*********/");
+							ts = new TreeSet<Person>((p1,p2) -> p1.name.compareTo(p2.name));
+							break; 
+			case ID 	: 	System.out.println("/********Sorting By ID*********/");
+							ts = new TreeSet<Person>((p1,p2) -> p1.id.compareTo(p2.id));
+							break;
+			default 	: 	return;
 		}
-		
-	}
-	
-	static void sortEmployeesById(ArrayList<Company> companies) {
-		TreeSet<Person> ts = new TreeSet<Person>((p1,p2) -> p1.id.compareTo(p2.id));
 		for(int i=0; i<companies.size(); i++) {
 			Iterator<Person> iterator = companies.get(i).Employees.iterator();
 			while(iterator.hasNext()) {
@@ -151,21 +155,12 @@ public class AdvancedCoreJava {
 			}
 			companies.get(i).resetEmployees(ts);
 		}	
-	}
-	
-	static void sortEmployees(ArrayList<Company> companies, SortType sorttype) {
-		System.out.println(sorttype);
-		switch(sorttype) {
-			case AGE 	: 	System.out.println("age");
-							break;
-			case NAME 	:	System.out.println("name");
-							break; 
-			case ID 	: //donothing
-		}
+		companies.get(0).getAllEmployees();
 	}
 	
 	public static void main(String[] args) {
 		ArrayList<Company> companies = new ArrayList<Company>();
+		
 		// Addition in O(nlog(n)) time
 		companies.add(new Company("Accolite","acc123", new Address("Umaiya Business Bay 1","Bangalore","576103")));
 		companies.add(new Company("Cisco","cis345", new Address("Cessna","Bangalore","576903")));
@@ -177,21 +172,11 @@ public class AdvancedCoreJava {
 		//Search in O(1) time
 		getAllEmployeesWithAgeLessThan30(companies);
 		//Search in O(n^2) time
+		getAllEmployeesInSameCity(companies);
 		
-		System.out.println("Sorting All Employees by Age");
-		companies.get(0).getAllEmployees();
-		/* EMPLOYEES SORTED WISE AGE BY DEFAULT CHECK ABOVE */
-		
-		System.out.println("Sorting All Employees by Name");
-		sortEmployeesByName(companies);
-		companies.get(0).getAllEmployees();
-		System.out.println("Sorting All Employees by ID");
-		sortEmployeesById(companies);
-		companies.get(0).getAllEmployees();
-		
-		SortType sort = SortType.AGE;
-		
-		sortEmployees(companies, sort);
-		
+		//Sort in O(nlogn) time
+		sortEmployees(companies, SortType.AGE);
+		sortEmployees(companies, SortType.NAME);
+		sortEmployees(companies, SortType.ID);
 	}
 }

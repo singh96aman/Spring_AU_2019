@@ -3,7 +3,7 @@
 * Made on : 12th January, 2019
 * Topics : Core Java
 * Sub Topics : 	Packages, import, interface, class, constructor, static function, static block, normal block, function overloading
-*				function overrriding, collections, arraylist, OOP, Datatypes, Exception Handling
+*				function overrriding, collections, arraylist, OOP, Datatypes, Exception Handling, covariant return type
 */
 //package Assignment;
 
@@ -11,6 +11,18 @@ import java.util.ArrayList;
 
 interface Salary{
 	abstract void calculateBonus(double salary);
+}
+
+class EmployeeDB{
+	public EmployeeDB() {
+		System.out.println("Getting Data from EmployeeDB");
+	}
+}
+
+class ManagerDB extends EmployeeDB{
+	public ManagerDB() {
+		System.out.println("Getting Data from ManagerDB");
+	}
 }
 
 class Employee{
@@ -38,11 +50,16 @@ class Employee{
 	public String toString() {
 		return "Employee is "+this.name+" with Employee ID "+this.empID+" Age "+this.age;
 	}
+	
+	public EmployeeDB getDetails() {
+		return new EmployeeDB();
+	}
+	
 }
 
+// Example of Single Inheritance of class and interface
 class Manager extends Employee implements Salary{
-	
-	Salary s;
+
 	
 	static {
 		System.out.println("Creating a Manager Position");
@@ -55,12 +72,16 @@ class Manager extends Employee implements Salary{
 	
 	@Override
 	public String toString() {
-		return "Manager is "+this.name+" with Employee ID "+this.empID+" Age "+this.age+" Designation "+this.designation;
+		return "Manager is "+this.name+" with Employee ID "+this.empID+" Age "+this.age+" Designation "+this.designation+"\n"	;
 	}
 
 	@Override
 	public void calculateBonus(double salary) {
 		System.out.println(salary*1.2);
+	}
+	
+	public ManagerDB getDetails() {
+		return new ManagerDB();
 	}
 	
 }
@@ -81,7 +102,7 @@ class Technical extends Employee implements Salary{
 	
 	@Override
 	public String toString() {
-		return "Technical is "+this.name+" with Employee ID "+this.empID+" Age "+this.age+" Designation "+this.designation;
+		return "Technical is "+this.name+" with Employee ID "+this.empID+" Age "+this.age+" Designation "+this.designation+"\n";
 	}
 
 	@Override
@@ -91,7 +112,8 @@ class Technical extends Employee implements Salary{
 	
 }
 
-public class FirstSessionAssignment {
+/* MAIN CLASS */
+public class FirstSessionJavaAssignment {
 	
 	static double salaryTechnical = 50000, salaryManager = 100000;
 	
@@ -130,6 +152,19 @@ public class FirstSessionAssignment {
 		Technical tempTechnical = technical.get(0);
 		System.out.print("Final Salary of Technical is : ");
 		tempTechnical.calculateBonus(salaryTechnical);
+		
+		/* SHOWING COVARIANT RETURN TYPE
+		 * ONLY SUPPORTED WITH JAVA JDK >= 5.0
+		 */
+		Employee emp = new Employee("tempemp","acc1",34);
+		Manager mng = new Manager("tempmng","acc2",67);
+		emp.getDetails();
+		mng.getDetails(); // Class Employee Constructor as well as Mnanager Constructor
+		
+		//Shows It's possible to override a parent method having differnt return type in child class 
+		//but child's return type should be sub-class of parent's return type
+		
+		
 		
 		//Throwing Exception
 		try {
