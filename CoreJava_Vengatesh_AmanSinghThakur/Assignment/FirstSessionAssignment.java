@@ -5,7 +5,7 @@
 * Sub Topics : 	Packages, import, interface, class, constructor, static function, static block, normal block, function overloading
 *				function overrriding, collections, arraylist, OOP, Datatypes, Exception Handling
 */
-package Assignment;
+//package Assignment;
 
 import java.util.ArrayList;
 

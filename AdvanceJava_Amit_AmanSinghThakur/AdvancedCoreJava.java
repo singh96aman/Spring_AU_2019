@@ -2,10 +2,10 @@
  * Made on : 12th January, 2019
  * Topic : Core Java
  * Sub Topics : packages, classes, constructor, function overloading, function overrriding, abstraction, abstract, interface
- * 				inheritance, algorithms, collections, treeset, arraylist, iterator, sorting 
+ * 				inheritance, algorithms, collections, treeset, arraylist, iterator, sorting, covariant return types
  */
 
-package Assignment;
+//package Assignment;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -99,6 +99,12 @@ class Person{
 
 public class AdvancedCoreJava {
 	
+	static enum SortType {
+		AGE,
+		NAME,
+		ID
+	}
+	
 	static void getAllEmployeesWithAgeLessThan30(ArrayList<Company> companies) {
 		for(int i=0; i<companies.size(); i++) {
 			System.out.println(companies.get(i).name);
@@ -144,8 +150,18 @@ public class AdvancedCoreJava {
 				ts.add(p);
 			}
 			companies.get(i).resetEmployees(ts);
+		}	
+	}
+	
+	static void sortEmployees(ArrayList<Company> companies, SortType sorttype) {
+		System.out.println(sorttype);
+		switch(sorttype) {
+			case AGE 	: 	System.out.println("age");
+							break;
+			case NAME 	:	System.out.println("name");
+							break; 
+			case ID 	: //donothing
 		}
-		
 	}
 	
 	public static void main(String[] args) {
@@ -169,11 +185,13 @@ public class AdvancedCoreJava {
 		System.out.println("Sorting All Employees by Name");
 		sortEmployeesByName(companies);
 		companies.get(0).getAllEmployees();
-		
 		System.out.println("Sorting All Employees by ID");
 		sortEmployeesById(companies);
 		companies.get(0).getAllEmployees();
 		
+		SortType sort = SortType.AGE;
+		
+		sortEmployees(companies, sort);
 		
 	}
 }
