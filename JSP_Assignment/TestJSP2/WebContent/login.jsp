@@ -7,7 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<%@ include file="index.jsp" %>  
 <hr/>  
   
 <h3>Login Form</h3>  
@@ -24,6 +23,15 @@
             hitsCount += 1;
          }
          application.setAttribute("hitCounter", hitsCount);
+      %>
+      <%
+      	HttpSession sess = request.getSession();
+      	String email = (String) sess.getAttribute("email");
+      	String pass = (String) sess.getAttribute("password");
+      	if(email!=null && pass!=null){
+      		 response.sendRedirect("MainPage.jsp");
+      	}
+      	System.out.println(email+" "+pass);
       %>
       <center>
          <p>Total number of visits: <%= hitsCount%></p>
