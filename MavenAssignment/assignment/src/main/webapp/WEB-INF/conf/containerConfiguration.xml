@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<fulcrum-yaafi>
+	<containerFlavour>yaafi</containerFlavour>
+	<containerClazzName>org.apache.fulcrum.yaafi.framework.container.ServiceContainerImpl</containerClazzName>
+	<componentRoles>
+		<location>/WEB-INF/conf/roleConfiguration.xml</location>
+		<isEncrypted>false</isEncrypted>
+	</componentRoles>
+	<componentConfiguration>
+		<location>/WEB-INF/conf/componentConfiguration.xml</location>
+		<isEncrypted>false</isEncrypted>
+	</componentConfiguration>
+	<parameters>
+		<location>/WEB-INF/conf/parameters.properties</location>
+		<isEncrypted>false</isEncrypted>
+	</parameters>
+</fulcrum-yaafi>

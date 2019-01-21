@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+
+<!DOCTYPE dataset SYSTEM "file://application-data.dtd">
+
+<!-- =============================================================================== -->
+<!--                                                                                 -->
+<!-- Application Data in XML. Add your custom values to this file                    -->
+<!--                                                                                 -->
+<!-- @version $Id: application-data.xml 615328 2008-01-25 20:25:05Z tv $ -->
+<!--                                                                                 -->
+<!-- =============================================================================== -->
+
+<dataset name="all"/>
+

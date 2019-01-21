@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<componentConfig>
+    <!-- Torque Component -->
+    <torque>
+       <configfile>/WEB-INF/conf/Torque.properties</configfile>
+    </torque>
+</componentConfig>

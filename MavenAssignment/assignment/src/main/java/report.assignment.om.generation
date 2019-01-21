@@ -1,0 +1,125 @@
+
+targetdatabase = mysql
+
+correctGetters = true
+
+             
+
+
+
+
+
+
+
+
+
+    Peers generated in package first.om
+    Objects generated in package first.om
+    Managers generated in package first.om
+    Beans generated in package first.om.bean
+
+    Created dir: C:\Users\aman.singh\Desktop\Assignments\MavenAssignment\assignment\src\main\java/first\om\
+
+    Failed to create dir or dir already exists: C:\Users\aman.singh\Desktop\Assignments\MavenAssignment\assignment\src\main\java/first\om\
+
+
+
+
+        table1
+
+        
+
+
+          
+
+          
+
+
+
+
+
+
+
+
+
+
+
+
+    Peers generated in package first.om
+    Objects generated in package first.om
+    Managers generated in package first.om
+    Beans generated in package first.om.bean
+
+    Failed to create dir or dir already exists: C:\Users\aman.singh\Desktop\Assignments\MavenAssignment\assignment\src\main\java/first\om\
+
+    Failed to create dir or dir already exists: C:\Users\aman.singh\Desktop\Assignments\MavenAssignment\assignment\src\main\java/first\om\
+
+
+
+
+        TURBINE_PERMISSION
+
+        
+
+
+          
+
+          
+
+
+
+        TURBINE_ROLE
+
+        
+
+
+          
+
+          
+
+
+
+        TURBINE_GROUP
+
+        
+
+
+          
+
+          
+
+
+
+        TURBINE_ROLE_PERMISSION
+
+        
+
+
+          
+
+          
+
+
+
+        TURBINE_USER
+
+        
+
+
+          
+
+          
+
+
+
+        TURBINE_USER_GROUP_ROLE
+
+        
+
+
+          
+
+          
+
+
+

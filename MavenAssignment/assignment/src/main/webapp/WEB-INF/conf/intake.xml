@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+
+<!-- ======================================================================== -->
+<!--                                                                          -->
+<!--  Default Intake file for Turbine Skeleton                                -->
+<!--                                                                          -->
+<!-- $Id: intake.xml 615350 2008-01-25 21:28:10Z tv $                         -->
+<!--                                                                          -->
+<!-- ======================================================================== -->
+
+<!DOCTYPE input-data SYSTEM "http://turbine.apache.org/dtd/intake_2_3_3.dtd">
+
+<input-data basePackage="first.">
+  <group name="example" key="example" mapToObject="om.Table1">
+    <field name="TestCol2" key="testCol2" type="String"/>
+  </group>
+</input-data>
