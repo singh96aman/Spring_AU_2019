@@ -1,0 +1,5 @@
+package com.springdemo.tutorial;
+
+public class FactoryDemo {
+	
+}
