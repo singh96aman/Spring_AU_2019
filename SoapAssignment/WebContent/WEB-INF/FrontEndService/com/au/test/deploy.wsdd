@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Use this file to deploy some handlers/chains and services      --><!-- Two ways to do this:                                           --><!--   java org.apache.axis.client.AdminClient deploy.wsdd          --><!--      after the axis server is running                          --><!-- or                                                             --><!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   --><!--      from the same directory that the Axis engine runs         --><deployment xmlns="http://xml.apache.org/axis/wsdd/" xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from FrontEndService WSDL service -->
+
+  <service name="FrontEnd" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://test.au.com"/>
+      <parameter name="wsdlServiceElement" value="FrontEndService"/>
+      <parameter name="schemaQualified" value="http://test.au.com"/>
+      <parameter name="wsdlServicePort" value="FrontEnd"/>
+      <parameter name="className" value="com.au.test.FrontEnd"/>
+      <parameter name="wsdlPortType" value="FrontEnd"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation xmlns:operNS="http://test.au.com" xmlns:retNS="http://test.au.com" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="insertMovie" qname="operNS:insertMovie" returnQName="retNS:insertMovieReturn" returnType="rtns:string" soapAction="">
+        <parameter xmlns:pns="http://test.au.com" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:name" type="tns:string"/>
+        <parameter xmlns:pns="http://test.au.com" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:noOfActors" type="tns:int"/>
+        <parameter xmlns:pns="http://test.au.com" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:noOfScreens" type="tns:int"/>
+      </operation>
+      <operation xmlns:operNS="http://test.au.com" xmlns:retNS="http://test.au.com" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="deleteMovie" qname="operNS:deleteMovie" returnQName="retNS:deleteMovieReturn" returnType="rtns:string" soapAction="">
+        <parameter xmlns:pns="http://test.au.com" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:name" type="tns:string"/>
+      </operation>
+      <operation xmlns:operNS="http://test.au.com" xmlns:retNS="http://test.au.com" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="updateMovie" qname="operNS:updateMovie" returnQName="retNS:updateMovieReturn" returnType="rtns:string" soapAction="">
+        <parameter xmlns:pns="http://test.au.com" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:name" type="tns:string"/>
+        <parameter xmlns:pns="http://test.au.com" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:noOfActors" type="tns:int"/>
+        <parameter xmlns:pns="http://test.au.com" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:noOfScreens" type="tns:int"/>
+      </operation>
+      <operation xmlns:operNS="http://test.au.com" xmlns:retNS="http://test.au.com" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="getAllMovies" qname="operNS:getAllMovies" returnQName="retNS:getAllMoviesReturn" returnType="rtns:string" soapAction="">
+      </operation>
+      <operation xmlns:operNS="http://test.au.com" xmlns:retNS="http://test.au.com" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="getMovieByName" qname="operNS:getMovieByName" returnQName="retNS:getMovieByNameReturn" returnType="rtns:string" soapAction="">
+        <parameter xmlns:pns="http://test.au.com" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:name" type="tns:string"/>
+      </operation>
+      <parameter name="allowedMethods" value="getMovieByName updateMovie deleteMovie getAllMovies insertMovie"/>
+
+  </service>
+</deployment>

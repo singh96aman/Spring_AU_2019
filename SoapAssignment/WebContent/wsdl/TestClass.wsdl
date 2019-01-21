@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://test.au.com" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://test.au.com" xmlns:intf="http://test.au.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://test.au.com" xmlns="http://www.w3.org/2001/XMLSchema">
+   <element name="getSum">
+    <complexType>
+     <sequence>
+      <element name="a" type="xsd:int"/>
+      <element name="b" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getSumResponse">
+    <complexType>
+     <sequence>
+      <element name="getSumReturn" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="getSumResponse">
+
+      <wsdl:part element="impl:getSumResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getSumRequest">
+
+      <wsdl:part element="impl:getSum" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="TestClass">
+
+      <wsdl:operation name="getSum">
+
+         <wsdl:input message="impl:getSumRequest" name="getSumRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getSumResponse" name="getSumResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="TestClassSoapBinding" type="impl:TestClass">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="getSum">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getSumRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getSumResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="TestClassService">
+
+      <wsdl:port binding="impl:TestClassSoapBinding" name="TestClass">
+
+         <wsdlsoap:address location="http://localhost:8082/SoapAssignment/services/TestClass"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>
