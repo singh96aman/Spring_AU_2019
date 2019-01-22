@@ -76,21 +76,21 @@ public class App
         */
         
         ArrayList<Company> cmpList= new ArrayList<Company>();
-        Criteria cr = session.createCriteria(Company.class);		
+        Criteria cr = session.createCriteria(Company.class).setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);	
         cmpList= (ArrayList<Company>) cr.list();
 		System.out.println(cmpList); //shows 1
-		
+		System.out.println("***********SHOWING UNIQUE ENTRIES******************");
 		for(Company c : cmpList) {
 	  		  System.out.println( 
 	  				  c.getCompanyName()+"|"+
 	  				  c.getCompanyID()+"|"+
-	  				  c.getEmployees().get(0));
+	  				  (c.getEmployees()!=null?c.getEmployees().get(0):"No Employee Found"));
 	  				  }
-
+		System.out.println("***********SHOWING ALL EMPLOYEES WITH AGE ABOVE 20******************");
 		   ArrayList<Employee> cmpList2= new ArrayList<Employee>();
 	        Criteria cr2 = session.createCriteria(Employee.class);	
 	        cr2.add(Restrictions.gt("employeeAge", 20));
 	        cmpList2 = (ArrayList<Employee>) cr2.list();
-			System.out.println(cmpList2); //shows 1
+			System.out.println(cmpList2); //sho	ws 1
     }
 }
