@@ -24,21 +24,21 @@ public class Demo {
 	public static String writeLocation = "C:\\Users\\aman.singh\\Junit\\Assignment\\src\\main\\java\\demo\\result.csv";
 	
 	
-	public static void main(String[] args) throws IOException {
+	/*public static void main(String[] args) throws IOException {
 		Demo demo = new Demo();
 		ArrayList<StudentRecord> stuList = new ArrayList<StudentRecord>();
-		stuList = demo.getDataFromCSV(stuList);
+		stuList = demo.getDataFromCSV(stuList, readLocation);
 		System.out.println("Getting Data from CSV "+stuList);
 		stuList=demo.sortTheList(stuList);
 		System.out.println("Sorted List "+stuList);
-		demo.writeDataIntoCSV(stuList);
-	}
+		demo.writeDataIntoCSV(stuList, writeLocation);
+	}*/
 	
 
-	public ArrayList<StudentRecord> getDataFromCSV(ArrayList<StudentRecord> stuList) throws NumberFormatException, IOException {
+	public ArrayList<StudentRecord> getDataFromCSV(ArrayList<StudentRecord> stuList, String location) throws NumberFormatException, IOException {
 			BufferedReader reader;
 			try {
-				reader = new BufferedReader(new FileReader(Demo.readLocation));
+				reader = new BufferedReader(new FileReader(location));
 				String line = null;
 				Scanner scanner = null;
 				int index = 0;
@@ -76,6 +76,48 @@ public class Demo {
 			}
 			return stuList;
 		}
+	
+	public ArrayList<StudentRecord> getDataFromCSV2(ArrayList<StudentRecord> stuList) throws NumberFormatException, IOException {
+		BufferedReader reader;
+		try {
+			reader = new BufferedReader(new FileReader(readLocation));
+			String line = null;
+			Scanner scanner = null;
+			int index = 0;
+			stuList = new ArrayList<StudentRecord>();
+
+					while ((line = reader.readLine()) != null) {
+						StudentRecord stu = new StudentRecord();
+						scanner = new Scanner(line);
+						scanner.useDelimiter(",");
+						while (scanner.hasNext()) {
+							String data = scanner.next();
+							if (index == 0)
+								stu.setName(data);
+							else if (index == 1)
+								stu.setSub1(Integer.parseInt(data));
+							else if (index == 2)
+								stu.setSub2(Integer.parseInt(data));
+							else if (index == 3)
+								stu.setSub3(Integer.parseInt(data));
+							else if (index ==4) {
+								stu.setSub4(Integer.parseInt(data));
+								stu.computeSum();
+							}
+							else
+								stu.setDate(new Date(data));
+							index++;
+						}
+						index = 0;
+						stuList.add(stu);	
+					}
+					reader.close();
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return stuList;
+	}
 
 	private ArrayList<StudentRecord> computePercentile(ArrayList<StudentRecord> stuList) {
 		int reference = stuList.get(0).getSum();
@@ -87,7 +129,33 @@ public class Demo {
 		return stuList;
 	}
 
-	public void writeDataIntoCSV(ArrayList<StudentRecord> stuList) {
+	public void writeDataIntoCSV(ArrayList<StudentRecord> stuList, String location) {
+		try {
+			PrintWriter pw = new PrintWriter(new File(location));
+			StringBuilder sb = new StringBuilder();
+			Iterator<StudentRecord> iterator = stuList.iterator();
+			while(iterator.hasNext()) {
+				StudentRecord student = iterator.next();
+				//System.out.println(student);
+				sb.append(student.getName()+",");
+				sb.append(student.getSub1()+",");
+				sb.append(student.getSub2()+",");
+				sb.append(student.getSub3()+",");
+				sb.append(student.getSub4()+",");
+				sb.append(student.getPercentile()+",");
+				sb.append(student.getDate().toString()+"\n");
+			}
+			pw.write(sb.toString());
+			pw.close();
+			System.out.println("Write Complete!");
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+	
+	public void writeDataIntoCSV2(ArrayList<StudentRecord> stuList) {
 		try {
 			PrintWriter pw = new PrintWriter(new File(Demo.writeLocation));
 			StringBuilder sb = new StringBuilder();
@@ -129,6 +197,8 @@ public class Demo {
 		arr = computePercentile(arr);
 		return arr;	
 	}
+	
+	
 	
 	//Please uncomment corresponding getDataFromCSV method
 	/*public ArrayList<StudentRecord> getDataFromCSV(ArrayList<StudentRecord> stuList, String location) throws FileNotFoundException {

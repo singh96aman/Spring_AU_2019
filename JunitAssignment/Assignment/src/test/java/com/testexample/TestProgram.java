@@ -32,7 +32,7 @@ public class TestProgram {
 		Demo demo = new Demo();
 		ArrayList<StudentRecord> stuList = new ArrayList<StudentRecord>();
 		try {
-			stuList = demo.getDataFromCSV(stuList);
+			stuList = demo.getDataFromCSV(stuList, Demo.readLocation);
 			assertEquals("student-0", stuList.get(0).getName());
 		} catch (NumberFormatException e) {
 			// TODO Auto-generated catch block
@@ -50,12 +50,12 @@ public class TestProgram {
 		ArrayList<StudentRecord> stuList = new ArrayList<StudentRecord>();
 		Demo demo = new Demo();
 		try {
-			stuList = demo.getDataFromCSV(stuList);
+			stuList = demo.getDataFromCSV(stuList, Demo.readLocation);
 			stuList = demo.sortTheList(stuList);
 			assertEquals("student-775", stuList.get(0).getName());
 			// assertEquals("student-775", stuList.get(0).getName()); //shows an error
 			//Mockito.verify(StudentRecord, Mockito.times(1)).notifyStudent(Mockito.any(StudentRecord.class));
-			demo.writeDataIntoCSV(stuList);
+			demo.writeDataIntoCSV(stuList, Demo.writeLocation);
 			} catch (NumberFormatException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -70,14 +70,14 @@ public class TestProgram {
 		Demo test = Mockito.spy(new Demo());
 		ArrayList<StudentRecord> stuList = new ArrayList<StudentRecord>();
 		try {
-			stuList = test.getDataFromCSV(stuList);
+			stuList = test.getDataFromCSV2(stuList);
 			stuList = test.sortTheList(stuList);
-			test.writeDataIntoCSV(stuList);
+			test.writeDataIntoCSV2(stuList);
 			
 			//Main Methods Tested
-			Mockito.verify(test, Mockito.times(1)).getDataFromCSV(Mockito.any());
+			Mockito.verify(test, Mockito.times(1)).getDataFromCSV2(Mockito.any());
 			Mockito.verify(test, Mockito.times(1)).sortTheList(Mockito.any());
-			Mockito.verify(test, Mockito.times(1)).writeDataIntoCSV(Mockito.any());
+			Mockito.verify(test, Mockito.times(1)).writeDataIntoCSV2(Mockito.any());
 			
 		} catch (NumberFormatException | IOException e) {
 			// TODO Auto-generated catch block
@@ -107,15 +107,20 @@ public class TestProgram {
 		
 	}
 
-	/*@Test(expected=FileNotFoundException.class)
-	public void checkForExceptions() {
+	@Test(expected=Exception.class)
+	public void checkForExceptions() throws Exception {
 		ArrayList<StudentRecord> stuList = new ArrayList<StudentRecord>();
+		Demo demo = new Demo();
 		try {
-			Demo demo = new Demo();
 			demo.getDataFromCSV(stuList,"C://test.java");
-		}catch(FileNotFoundException ex) {
+		}catch(Exception ex) {
 			System.out.println("File not found");
 		}
-	}*/
+		try {
+			demo.writeDataIntoCSV(stuList,"C://test.java");
+		}catch(Exception ex) {
+			
+		}
+	}
 
 }
