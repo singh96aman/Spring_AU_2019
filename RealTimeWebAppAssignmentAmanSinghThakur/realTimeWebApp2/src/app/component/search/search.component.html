@@ -1,0 +1,11 @@
+<div>
+  <label for="bookId">ID:</label>
+  <input type="text" id="bookId" [(ngModel)]="id" />
+  <button type="button" (click)="showData()">Add Book</button>
+</div>
+<p class="sectionheader jumbotron">search works!</p>
+<span *ngIf="book && book.bookName">
+  <a [routerLink]="['/book', book.id]" routerLinkActive="active">{{
+    book.bookName
+  }}</a></span
+>

@@ -1,0 +1,5 @@
+Factory method implements interfaces and abstract factory produces factories.
+
+Factory method produces single object and abstract factory produces multiple related objects.
+
+Factory method relies on sub class for the instantiation and abstract factory relies on other objects for instantiation.

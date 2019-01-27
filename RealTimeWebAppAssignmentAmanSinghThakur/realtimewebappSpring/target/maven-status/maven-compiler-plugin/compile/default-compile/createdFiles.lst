@@ -1,0 +1,5 @@
+com\au\aulibrary\config\WebServletConfiguration.class
+com\au\aulibrary\model\Book.class
+com\au\aulibrary\config\SpringConfig.class
+com\au\aulibrary\repository\BooksDAO.class
+com\au\aulibrary\controller\BookController.class
